@@ -1,0 +1,34 @@
+-- Objetivo:
+--   Transformar datos de staging a core: limpieza, tipado, deduplicación
+--   justificada y resolución de reglas de negocio. La lógica de negocio vive
+--   aquí, no en Python.
+-- Dependencias:
+--   02 (staging con datos), 03 (tablas core). 04 según el orden elegido.
+-- Entradas:
+--   staging.* ya cargado con pgAdmin o scripts/load_raw_data.py.
+-- Salidas:
+--   core.* poblado. Este script debe poder reejecutarse de forma controlada
+--   (documentad si hacéis TRUNCATE previo o DELETE).
+-- Autoría / equipo:
+--   TODO: indicar nombres, apellidos y repositorio del equipo.
+
+-- TODO: para cada entidad:
+--   1) decidir qué filas se descartan, se corrigen o se conservan con marca de calidad;
+--   2) convertir tipos (fechas ISO, numéricos, booleanos);
+--   3) normalizar categorías (mayúsculas/minúsculas, espacios);
+--   4) insertar en core.
+-- Documentad en el informe cada regla. No silenciéis anomalías sin dejar rastro.
+
+-- Patrón neutro:
+-- TRUNCATE TABLE core._plantilla_ejemplo;
+-- INSERT INTO core._plantilla_ejemplo (example_id, example_name, created_on)
+-- SELECT DISTINCT
+--     NULLIF(TRIM(row_num), ''),
+--     NULLIF(TRIM(source_file), ''),
+--     NULL
+-- FROM staging._plantilla_ejemplo
+-- WHERE NULLIF(TRIM(row_num), '') IS NOT NULL;
+
+-- TODO: el orden de inserción debe respetar las dependencias (por ejemplo,
+-- geografía y categorías antes que clientes y productos; pedidos antes que
+-- líneas, pagos y envíos).

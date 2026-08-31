@@ -1,0 +1,147 @@
+<h2>Rúbrica de la entrega 1 (100 puntos)</h2>
+<p>Evaluación de base de datos, arquitectura e insights SQL. Niveles: Excelente, Adecuado, En desarrollo, Insuficiente. Suma: 40 + 30 + 30 = <strong>100</strong>.</p>
+<p>Los bloques A y B se califican sobre el producto grupal. El bloque C usa la defensa oral y puede tener matices individuales. La ausencia se aplica a la persona afectada, no al resto del equipo de forma automática. Nota sobre 10 = puntos / 10.</p>
+
+<h3>Bloque A. Implementación técnica de SQL y reproducibilidad (40 puntos)</h3>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+  <thead>
+    <tr>
+      <th scope="col">Criterio</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Excelente</th>
+      <th scope="col">Adecuado</th>
+      <th scope="col">En desarrollo</th>
+      <th scope="col">Insuficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">A1. Reproducibilidad y ejecución de los scripts</th>
+      <td>12</td>
+      <td>Los scripts numerados recrean la base desde cero en pgAdmin, uno a uno, y también con el pipeline Python. El orden está documentado. Un tercero reproduce sin mensajes privados del equipo.</td>
+      <td>Los scripts funcionan en orden con indicaciones menores (un paso manual documentado, por ejemplo la importación a staging). Se puede reproducir en un tiempo razonable.</td>
+      <td>Faltan pasos, hay rutas locales o el orden solo lo conoce quien lo escribió. La reproducción requiere adivinar.</td>
+      <td>No hay scripts ejecutables, dependen de \i o \copy, o el repositorio no permite reconstruir la base.</td>
+    </tr>
+    <tr>
+      <th scope="row">A2. Arquitectura por capas, modelo de datos y relaciones</th>
+      <td>12</td>
+      <td>staging, core y analytics (o equivalente justificado) están separados con propósito claro. El ER es legible. PK/FK y cardinalidades coinciden con el código y el informe.</td>
+      <td>Hay capas y un modelo relacional usable. El ER existe y es comprensible, con fallos menores de nomenclatura o de una cardinalidad.</td>
+      <td>Tablas planas o staging copiado a core sin diseño. ER incompleto o contradictorio con las FK.</td>
+      <td>No hay modelo reconocible, ni esquemas, ni relaciones documentadas ni implementadas.</td>
+    </tr>
+    <tr>
+      <th scope="row">A3. Transformaciones, restricciones, índices y vistas</th>
+      <td>10</td>
+      <td>La limpieza está en SQL, con reglas explícitas. Restricciones e índices justificados. Vistas con propósito de negocio, incluidas agregadas. El orden 04/05 está razonado.</td>
+      <td>Hay transformación a tipos correctos, algunas FK/índices y al menos una vista útil. Justificación breve pero presente.</td>
+      <td>Casi no hay limpieza, o las vistas son SELECT *. Índices decorativos o restricciones que se desactivan sin análisis.</td>
+      <td>No hay transformación documentada, ni vistas, ni integridad más allá de cargar texto.</td>
+    </tr>
+    <tr>
+      <th scope="row">A4. Documentación técnica de los scripts</th>
+      <td>6</td>
+      <td>Encabezados completos (objetivo, dependencias, entradas, salidas, autoría). Comentarios que explican decisiones, no el SQL obvio.</td>
+      <td>Encabezados presentes y autoría del equipo. Algún comentario desigual entre archivos.</td>
+      <td>Plantillas TODO apenas tocadas o autoría ausente.</td>
+      <td>Scripts opacos, sin encabezado ni forma de saber qué ejecutar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Bloque B. Calidad de los insights y de sus queries o evidencias (30 puntos)</h3>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+  <thead>
+    <tr>
+      <th scope="col">Criterio</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Excelente</th>
+      <th scope="col">Adecuado</th>
+      <th scope="col">En desarrollo</th>
+      <th scope="col">Insuficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">B1. Cobertura y relevancia de los insights de negocio</th>
+      <td>10</td>
+      <td>Entre 5 y 10 hallazgos no triviales, conectados con decisiones de AlbaMarket, sin repetir el mismo recuento disfrazado.</td>
+      <td>5 o más insights pertinentes, alguno descriptivo. Cubren más de una perspectiva.</td>
+      <td>Menos de 5, o todos son conteos COUNT(*) sin pregunta de negocio.</td>
+      <td>No hay insights, o son irrelevantes o copiados sin relación con los datos.</td>
+    </tr>
+    <tr>
+      <th scope="row">B2. Calidad de las consultas SQL y de la evidencia</th>
+      <td>12</td>
+      <td>Cada insight cita un archivo .sql ejecutable. La evidencia es una agregación o muestra controlada. Las queries son legibles y usan el modelo de forma correcta.</td>
+      <td>Queries en el repo y resultado en el informe. Fallos menores.</td>
+      <td>Queries solo como captura, o no se pueden ejecutar, o no coinciden con el texto.</td>
+      <td>No hay SQL de insights en el repositorio.</td>
+    </tr>
+    <tr>
+      <th scope="row">B3. Interpretación, implicación de negocio y cautelas de calidad</th>
+      <td>8</td>
+      <td>Interpretación ligada a la evidencia, implicación accionable y cautela cuando la calidad del dato limita la afirmación.</td>
+      <td>Hay interpretación y alguna limitación. La recomendación es plausible.</td>
+      <td>Se describe la tabla de resultado sin decir qué significa para dirección, o se afirma de más.</td>
+      <td>No hay interpretación, o se ignoran problemas de calidad evidentes para inflar el hallazgo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Bloque C. Presentación y defensa oral (30 puntos)</h3>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+  <thead>
+    <tr>
+      <th scope="col">Criterio</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Excelente</th>
+      <th scope="col">Adecuado</th>
+      <th scope="col">En desarrollo</th>
+      <th scope="col">Insuficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">C1. Estructura, claridad y adecuación del discurso</th>
+      <td>10</td>
+      <td>Guion claro en el tiempo [DURACION_PRESENTACION_1], lenguaje para clase y para un perfil de dirección, apoyo visual legible.</td>
+      <td>Se entiende el relato (problema, modelo, hallazgos). Desajustes leves de tiempo o de diapositivas densas.</td>
+      <td>Lectura continua de diapositivas, sin hilo, o fuera de tiempo de forma notable.</td>
+      <td>No hay presentación usable, o no se expone el trabajo.</td>
+    </tr>
+    <tr>
+      <th scope="row">C2. Dominio técnico y capacidad de defensa</th>
+      <td>12</td>
+      <td>Responden a preguntas sobre orden de carga, una FK, una regla de limpieza y un insight con la query en mente.</td>
+      <td>Defienden lo esencial con alguna imprecisión que corrigen al repreguntar.</td>
+      <td>Solo quien escribió el SQL puede responder; el resto no distingue staging de core.</td>
+      <td>No hay defensa técnica, o contradice de forma grave el repositorio.</td>
+    </tr>
+    <tr>
+      <th scope="row">C3. Participación identificable y trabajo en equipo</th>
+      <td>8</td>
+      <td>Todas las personas del equipo intervienen de forma reconocible (parte del discurso o respuestas).</td>
+      <td>Intervienen todas, aunque el reparto sea desigual pero declarado.</td>
+      <td>Una persona monopoliza; el resto saluda o lee una diapositiva ajena sin criterio.</td>
+      <td>No se puede identificar la participación, o hay integrantes de la matrícula que no aparecen ni en repo ni en sala sin justificación.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Reglas especiales</h3>
+<ul>
+  <li>Si el código y los scripts no están correctamente subidos al repositorio como máximo el día posterior a la presentación, la parte técnica completa se califica con <strong>0 puntos sobre 40</strong> (bloque A entero). Los bloques B y C pueden evaluarse con la evidencia disponible ese día, pero B2 no puede ser Excelente ni Adecuado si las queries no están en el repo.</li>
+  <li>Un alumno que no realice la presentación/defensa oral podrá obtener como máximo <strong>7/10</strong> en esta entrega. La regla es individual.</li>
+  <li>La ausencia individual no rebaja automáticamente al resto del equipo.</li>
+  <li>Cualquier uso de SQLite debe estar debidamente justificado por un problema técnico real. Una elección por mera comodidad no satisface el requisito tecnológico.</li>
+</ul>
+
+<h3>Observaciones del profesorado</h3>
+<p>Equipo: ________  Fecha de presentación: ________  Fecha del commit/etiqueta evaluado: ________</p>
+<p>SQLite / incidencias técnicas: ________</p>
+<p>Comentarios bloque A: ________</p>
+<p>Comentarios bloque B: ________</p>
+<p>Comentarios bloque C (individuales si aplica): ________</p>
+<p>Nota numérica (0–100) y sobre 10: ________</p>

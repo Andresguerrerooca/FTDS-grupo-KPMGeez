@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "course-project"
+version = "0.1.0"
+description = "Proyecto transversal de Fundamentos Tecnológicos en Data Science (SQL + Streamlit)"
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+license = { text = "MIT" }
+authors = [
+  { name = "Equipo docente FTDS" },
+]
+dependencies = [
+  "pandas>=2.2,<3",
+  "numpy>=1.26,<3",
+  "faker>=33.0,<38",
+  "openpyxl>=3.1,<4",
+  "xlsxwriter>=3.2,<4",
+  "sqlalchemy>=2.0,<3",
+  "psycopg[binary]>=3.2,<4",
+  "python-dotenv>=1.0,<2",
+  "streamlit>=1.32,<1.49",
+  "plotly>=5.18,<7",
+  "pyyaml>=6.0,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<9",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = [
+  "ignore::DeprecationWarning",
+]

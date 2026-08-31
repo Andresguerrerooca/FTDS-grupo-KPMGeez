@@ -1,0 +1,40 @@
+course:
+  name: Fundamentos Tecnológicos en Data Science
+  short_name: FTDS
+  institution: "Universidad Europea de Andalucía"
+  academic_year: "26/27"
+  case_name: AlbaMarket
+  case_description: "Plataforma ficticia de comercio electrónico."
+
+deliveries:
+  entrega_1:
+    title: Base de datos, arquitectura e insights SQL
+    fecha: "16-12-2026"
+    duracion_presentacion: "15 minutos"
+    repo_deadline_note: "Código en el repositorio como máximo el día posterior a la presentación."
+    recommended_tag: entrega-1
+  entrega_2:
+    title: Dashboard ejecutivo en Streamlit
+    fecha: "24-02-2027"
+    duracion_presentacion: "15 minutos"
+    repo_deadline_note: "Código y manual en el repositorio como máximo el día posterior a la presentación."
+    recommended_tag: entrega-2
+
+database:
+  name: ecommerce_course
+  default_engine: postgresql
+  sqlite_policy: "SQLite solo se admite ante un problema técnico real, documentado y justificado."
+
+data:
+  default_seed: 2026
+  default_profile: full
+  anomaly_target_rate: 0.05
+  date_start: "2023-01-01"
+  date_end: "2026-06-30"
+  currency: EUR
+
+paths:
+  raw_data: data/raw
+  processed_data: data/processed
+  sql_dir: sql
+  app_dir: app

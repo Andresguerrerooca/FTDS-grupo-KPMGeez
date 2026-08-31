@@ -1,0 +1,81 @@
+# Entornos y secretos
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.streamlit/secrets.toml.local
+*.pem
+*.key
+
+# Datos generados (se distribuyen por un canal aparte)
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/README.md
+
+# Material interno del profesorado
+instructor/generated/
+instructor/generated/**
+!instructor/generated/.gitkeep
+
+# Paquetes de distribución
+dist/
+build/
+*.egg-info/
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# Bases de datos locales
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.backup
+*.bak
+
+# Logs y temporales
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+.cache/
+
+# Exportaciones y volcados
+exports/
+dumps/
+*.csv.gz
+*.parquet
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Sistemas operativos y editores
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Streamlit
+.streamlit/machine_id.toml

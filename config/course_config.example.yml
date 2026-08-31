@@ -1,0 +1,45 @@
+# Archivo maestro de configuración académica.
+# Copiadlo a config/course_config.yml y sustituid los marcadores.
+# Las fechas y duraciones reales NO se inventan en el resto de la documentación:
+# se referencian desde aquí.
+
+course:
+  name: Fundamentos Tecnológicos en Data Science
+  short_name: FTDS
+  institution: "[INSTITUCION]"
+  academic_year: "[CURSO_ACADEMICO]"
+  case_name: AlbaMarket
+  case_description: "Plataforma ficticia de comercio electrónico."
+
+deliveries:
+  entrega_1:
+    title: Base de datos, arquitectura e insights SQL
+    fecha: "[FECHA_ENTREGA_1]"
+    duracion_presentacion: "[DURACION_PRESENTACION_1]"
+    repo_deadline_note: "Código en el repositorio como máximo el día posterior a la presentación."
+    recommended_tag: entrega-1
+  entrega_2:
+    title: Dashboard ejecutivo en Streamlit
+    fecha: "[FECHA_ENTREGA_2]"
+    duracion_presentacion: "[DURACION_PRESENTACION_2]"
+    repo_deadline_note: "Código y manual en el repositorio como máximo el día posterior a la presentación."
+    recommended_tag: entrega-2
+
+database:
+  name: ecommerce_course
+  default_engine: postgresql
+  sqlite_policy: "SQLite solo se admite ante un problema técnico real, documentado y justificado."
+
+data:
+  default_seed: 2026
+  default_profile: demo
+  anomaly_target_rate: 0.05
+  date_start: "2023-01-01"
+  date_end: "2026-06-30"
+  currency: EUR
+
+paths:
+  raw_data: data/raw
+  processed_data: data/processed
+  sql_dir: sql
+  app_dir: app

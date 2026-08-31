@@ -1,0 +1,182 @@
+<h2>Rúbrica de la entrega 2 (100 puntos)</h2>
+<p>Evaluación del dashboard ejecutivo en Streamlit. Niveles: Excelente, Adecuado, En desarrollo, Insuficiente. Suma: 40 + 20 + 20 + 20 = <strong>100</strong>.</p>
+<p><strong>Bloque T (40):</strong> ¿La aplicación funciona, se conecta a la base, cumple mínimos y se puede arrancar con el manual?</p>
+<p><strong>Bloque R (20):</strong> ¿El código está modular, documentado, sin secretos y con un Git limpio?</p>
+<p>Un dashboard que funciona en un único archivo largo puede puntuar alto en T y bajo en R. Un repo impecable que solo lee CSV puntúa bajo en T. La ausencia se aplica a la persona afectada, no al resto de forma automática.</p>
+
+<h3>Bloque T. Funcionamiento técnico del dashboard (40 puntos)</h3>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+  <thead>
+    <tr>
+      <th scope="col">Criterio</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Excelente</th>
+      <th scope="col">Adecuado</th>
+      <th scope="col">En desarrollo</th>
+      <th scope="col">Insuficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">T1. Conexión real a la base de datos y origen de los datos</th>
+      <td>12</td>
+      <td>Conexión a PostgreSQL (o SQLite justificado) mediante entorno o secretos de ejemplo. Las vistas o tablas core/analytics son el origen. No hay lectura de CSV como fuente del tablero.</td>
+      <td>Conecta y muestra datos de la base. Algún gráfico aún mezcla un apoyo local documentado, no como fuente principal.</td>
+      <td>Conexión inestable, credenciales en código, o parte material del tablero sale de ficheros.</td>
+      <td>No hay conexión. La app solo lee CSV/Excel. Este incumplimiento impide una valoración satisfactoria (Excelente o Adecuado) de todo el bloque T.</td>
+    </tr>
+    <tr>
+      <th scope="row">T2. Requisitos mínimos de consulta, tabla y visualizaciones</th>
+      <td>12</td>
+      <td>Una tabla y tres visualizaciones con SQL parametrizado, títulos, unidades y propósito. Filtros útiles si existen. Selección contenida.</td>
+      <td>Cumple el mínimo (1 tabla + 3 gráficos) con datos reales de la base. Filtros simples o alguno cosmético.</td>
+      <td>Falta alguno de los mínimos, o los gráficos no salen de una consulta, o son placeholders de la plantilla.</td>
+      <td>No hay producto más allá de la plantilla sin conectar.</td>
+    </tr>
+    <tr>
+      <th scope="row">T3. Manejo de errores, parámetros y estabilidad</th>
+      <td>8</td>
+      <td>Sin base, el mensaje es accionable. Los filtros no concatenan SQL. La app no revienta en excepción cruda ante un fallo típico.</td>
+      <td>Errores de conexión controlados. Algún fallo menor no capturado.</td>
+      <td>Trazas largas sin guía, o SQL interpolado con el selectbox.</td>
+      <td>La app no arranca o cae al primer error sin información útil.</td>
+    </tr>
+    <tr>
+      <th scope="row">T4. Reproducibilidad, manual de ejecución y entorno</th>
+      <td>8</td>
+      <td>Manual de 2–4 páginas equivalentes: instalación, .env, streamlit run app/Home.py, tablas o vistas esperadas, limitaciones. Un tercero arranca con ese texto.</td>
+      <td>Manual suficiente con un hueco menor (por ejemplo, versión de Python no citada).</td>
+      <td>README genérico sin comandos reales, o comandos que no coinciden con el repo.</td>
+      <td>No hay manual ni forma documentada de ejecutar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Bloque R. Calidad del código y limpieza del repositorio (20 puntos)</h3>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+  <thead>
+    <tr>
+      <th scope="col">Criterio</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Excelente</th>
+      <th scope="col">Adecuado</th>
+      <th scope="col">En desarrollo</th>
+      <th scope="col">Insuficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">R1. Modularidad, claridad y documentación del código</th>
+      <td>8</td>
+      <td>Separación conexión / consultas / gráficos / UI. Nombres claros. Comentarios de decisión. Páginas extra solo si aportan.</td>
+      <td>Estructura razonable a partir de la plantilla, con módulos o funciones propias.</td>
+      <td>Un único archivo masivo, nombres oscuros, plantilla apenas tocada en estructura.</td>
+      <td>Código incomprensible o no es Python/Streamlit del repo.</td>
+    </tr>
+    <tr>
+      <th scope="row">R2. Gestión segura de la configuración y dependencias</th>
+      <td>6</td>
+      <td>.env.example o secrets de ejemplo; dependencias fijadas en rangos; ninguna contraseña en Git.</td>
+      <td>Entorno reproducible y sin secretos reales. Alguna dependencia solo citada de palabra.</td>
+      <td>Dependencias incompletas o un secreto pegado en un comentario.</td>
+      <td>Credenciales en el código o en archivos versionados.</td>
+    </tr>
+    <tr>
+      <th scope="row">R3. Higiene del repositorio e historial de Git</th>
+      <td>6</td>
+      <td>Sin CSV/Excel de datos, sin .venv, sin .db, commits con sentido, etiqueta o commit de entrega identificable.</td>
+      <td>Repo usable; uno o dos archivos irrelevantes no sensibles.</td>
+      <td>Historial poco informativo, o artefactos que el .gitignore debería haber evitado.</td>
+      <td>Entrega por fichero suelto fuera de Git, o datos/secretos en el repo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Bloque N. Calidad estética y narrativa (20 puntos)</h3>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+  <thead>
+    <tr>
+      <th scope="col">Criterio</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Excelente</th>
+      <th scope="col">Adecuado</th>
+      <th scope="col">En desarrollo</th>
+      <th scope="col">Insuficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">N1. Selección y propósito analítico de los elementos visuales</th>
+      <td>8</td>
+      <td>Cada visual responde a una pregunta de dirección. No hay gráficos de relleno. Se nota por qué están esos insights y no otros.</td>
+      <td>Selección razonable, algún gráfico débil pero no contradictorio.</td>
+      <td>Galería de plots sin tesis, o más de unos 10 elementos que diluyen el mensaje.</td>
+      <td>Sin narrativa visual, o gráficos sin título, unidades o propósito.</td>
+    </tr>
+    <tr>
+      <th scope="row">N2. Legibilidad, jerarquía visual y pulido estético</th>
+      <td>6</td>
+      <td>Jerarquía clara (titular, KPI o tesis, apoyo). Contraste y no saturación. Ejes legibles.</td>
+      <td>Se lee en una pantalla de aula. Algún solapamiento o color discutible.</td>
+      <td>Texto minúsculo, leyendas cortadas, plantilla cruda.</td>
+      <td>Ilegible o roto en la demostración.</td>
+    </tr>
+    <tr>
+      <th scope="row">N3. Narrativa ejecutiva y apoyo a la toma de decisiones</th>
+      <td>6</td>
+      <td>Audiencia de alta gerencia: contexto, hallazgo, implicación, limitación. Se entiende qué harían mañana.</td>
+      <td>Relato de negocio presente, con alguna jerga técnica de más.</td>
+      <td>Narrativa de tutorial Streamlit, no de dirección.</td>
+      <td>No hay discurso ejecutivo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Bloque P. Presentación y defensa oral (20 puntos)</h3>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+  <thead>
+    <tr>
+      <th scope="col">Criterio</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Excelente</th>
+      <th scope="col">Adecuado</th>
+      <th scope="col">En desarrollo</th>
+      <th scope="col">Insuficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">P1. Claridad de la presentación del producto</th>
+      <td>10</td>
+      <td>Demostración en vivo o guiada en [DURACION_PRESENTACION_2], con recorrido consciente.</td>
+      <td>Se ve el producto y el hilo. Algún tropiezo técnico recuperado.</td>
+      <td>Solo diapositivas de capturas, o demo que no coincide con el repo.</td>
+      <td>No se presenta el producto.</td>
+    </tr>
+    <tr>
+      <th scope="row">P2. Defensa, justificación de decisiones y respuestas</th>
+      <td>10</td>
+      <td>Justifican conexión, elección de gráficos, agregación frente a detalle personal, y una limitación de datos.</td>
+      <td>Responden lo central con apoyo del equipo.</td>
+      <td>No saben de dónde sale un número mostrado.</td>
+      <td>No hay defensa.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Reglas especiales</h3>
+<ul>
+  <li>Si el código y el manual no están correctamente subidos al repositorio como máximo el día posterior a la presentación, se aplican ceros o el nivel Insuficiente en los criterios directamente afectados, con trazabilidad: T4; R3; T2 y R1 si no hay código evaluable en Git. El acta debe citar el commit ausente o tardío.</li>
+  <li>Un alumno que no realice la presentación/defensa oral podrá obtener como máximo <strong>8/10</strong> en esta entrega. La regla es individual.</li>
+  <li>La ausencia individual no reduce automáticamente la nota oral del resto del equipo.</li>
+  <li>Una aplicación que solo lea ficheros y no se conecte a la base de datos incumple un requisito esencial y no puede obtener una valoración satisfactoria (Excelente o Adecuado) en el bloque T (40 puntos).</li>
+  <li>SQLite requiere justificación documentada de un problema técnico real. Por comodidad, T1 no puede ser Excelente ni Adecuado.</li>
+</ul>
+
+<h3>Observaciones del profesorado</h3>
+<p>Equipo: ________  Fecha de presentación: ________  Commit/etiqueta: ________</p>
+<p>¿Conexión a PostgreSQL verificada?: ________  ¿SQLite justificado?: ________</p>
+<p>Criterios T afectados por retraso de repo: ________</p>
+<p>Comentarios T / R / N / P: ________</p>
+<p>Notas individuales (tope 8/10 si aplica): ________</p>
+<p>Nota numérica (0–100) y sobre 10: ________</p>
