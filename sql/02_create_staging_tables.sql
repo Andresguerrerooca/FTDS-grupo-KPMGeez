@@ -1,30 +1,116 @@
 -- Objetivo:
 --   Definir tablas de staging que reciban los ficheros fuente con tipos
---   tolerantes (texto cuando el origen pueda venir sucio).
+--   tolerantes (TEXT en todas las columnas para no rechazar filas sucias).
 -- Dependencias:
 --   01_create_schemas.sql
 -- Entradas:
---   Contrato de columnas descrito en data/raw/data_dictionary.xlsx (cuando lo
---   tengáis) y en docs/01_descripcion_del_caso.md.
+--   Ficheros CSV/Excel en data/raw/ según contrato de data_dictionary.xlsx.
 -- Salidas:
---   Tablas staging.* listas para importar CSV/Excel vía pgAdmin o
---   scripts/load_raw_data.py. Aún no hay claves ni transformaciones.
+--   10 tablas en el esquema staging.* listas para la importación inicial.
 -- Autoría / equipo:
 --   TODO: indicar nombres, apellidos y repositorio del equipo.
 
--- TODO: cread una tabla staging por fichero fuente. Usad TEXT o VARCHAR para
--- campos que puedan llegar con formatos inconsistentes. No apliquéis todavía
--- claves foráneas: staging debe poder cargar el fichero aunque haya suciedad.
-
--- Ejemplo neutro de patrón (sustituid por las tablas reales del caso):
-CREATE TABLE IF NOT EXISTS staging._plantilla_ejemplo (
-    row_num TEXT,
-    source_file TEXT,
-    loaded_at TEXT
+CREATE TABLE IF NOT EXISTS staging.geography (
+    geo_id TEXT,
+    country_code TEXT,
+    country_name TEXT,
+    region_code TEXT,
+    region_name TEXT,
+    city_name TEXT,
+    postal_code TEXT,
+    is_island TEXT
 );
 
--- DROP TABLE IF EXISTS staging._plantilla_ejemplo;
+CREATE TABLE IF NOT EXISTS staging.customers (
+    customer_id TEXT,
+    first_name TEXT,
+    last_name TEXT,
+    email TEXT,
+    phone TEXT,
+    customer_segment TEXT,
+    registration_date TEXT,
+    geo_id TEXT,
+    is_active TEXT,
+    preferred_channel TEXT
+);
 
--- TODO: customers, suppliers, categories, products, orders, order_items,
--- payments, shipments, returns, geography.
--- Alinead los nombres de columna con el diccionario de datos.
+CREATE TABLE IF NOT EXISTS staging.suppliers (
+    supplier_id TEXT,
+    supplier_name TEXT,
+    country_code TEXT,
+    contact_email TEXT,
+    lead_time_days TEXT,
+    reliability_score TEXT,
+    is_active TEXT
+);
+
+CREATE TABLE IF NOT EXISTS staging.categories (
+    category_id TEXT,
+    category_name TEXT,
+    parent_category_id TEXT,
+    target_margin_pct TEXT
+);
+
+CREATE TABLE IF NOT EXISTS staging.products (
+    product_id TEXT,
+    product_name TEXT,
+    sku TEXT,
+    category_id TEXT,
+    supplier_id TEXT,
+    unit_cost TEXT,
+    list_price TEXT,
+    is_active TEXT,
+    created_date TEXT
+);
+
+CREATE TABLE IF NOT EXISTS staging.orders (
+    order_id TEXT,
+    customer_id TEXT,
+    order_date TEXT,
+    order_status TEXT,
+    channel TEXT,
+    geo_id TEXT,
+    discount_pct TEXT,
+    shipping_fee TEXT,
+    order_total TEXT
+);
+
+CREATE TABLE IF NOT EXISTS staging.order_items (
+    order_item_id TEXT,
+    order_id TEXT,
+    product_id TEXT,
+    quantity TEXT,
+    unit_price TEXT,
+    line_discount_pct TEXT,
+    line_total TEXT
+);
+
+CREATE TABLE IF NOT EXISTS staging.payments (
+    payment_id TEXT,
+    order_id TEXT,
+    payment_date TEXT,
+    payment_method TEXT,
+    payment_status TEXT,
+    amount TEXT,
+    currency TEXT
+);
+
+CREATE TABLE IF NOT EXISTS staging.shipments (
+    shipment_id TEXT,
+    order_id TEXT,
+    shipped_date TEXT,
+    delivered_date TEXT,
+    carrier TEXT,
+    shipment_status TEXT,
+    tracking_code TEXT
+);
+
+CREATE TABLE IF NOT EXISTS staging.returns (
+    return_id TEXT,
+    order_id TEXT,
+    order_item_id TEXT,
+    return_date TEXT,
+    return_reason TEXT,
+    return_status TEXT,
+    refund_amount TEXT
+);

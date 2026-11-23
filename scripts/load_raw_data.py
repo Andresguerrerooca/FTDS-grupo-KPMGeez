@@ -15,7 +15,20 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from course_project.db import create_db_engine  # noqa: E402
-from course_project.data_generation.schema import EXCEL_TABLES, TABLE_ORDER  # noqa: E402
+
+EXCEL_TABLES = {"shipments", "suppliers"}
+TABLE_ORDER = [
+    "geography",
+    "categories",
+    "suppliers",
+    "customers",
+    "products",
+    "orders",
+    "order_items",
+    "payments",
+    "shipments",
+    "returns",
+]
 
 
 def parse_args() -> argparse.Namespace:
