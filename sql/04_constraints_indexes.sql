@@ -33,7 +33,7 @@
 -- Primero voy a definir las PRIMARY KEYS de cada tabla
 
 Alter Table core.categories
-add constraint pk_categories PRIMARY KEY (category_id);
+    add constraint pk_categories PRIMARY KEY (category_id);
 
 Alter Table core.customers
 add constraint pk_customers PRIMARY KEY (customer_id);
