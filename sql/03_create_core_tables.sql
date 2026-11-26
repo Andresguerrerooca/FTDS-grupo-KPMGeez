@@ -9,11 +9,11 @@
 -- Salidas:
 --   Tablas core.* vacías, preparadas para la carga transformada.
 -- Autoría / equipo:
---   TODO: indicar nombres, apellidos y repositorio del equipo.
+--   Grupo KPMGeez — [Pablo Sepúlveda, Mohammed Ghaith, Meysem Bentahar, Andres Guerrero, Martín Larrea]
+--   Repositorio: https://github.com/Andresguerrerooca/FTDS-grupo-KPMGeez
 
--- ============================================================================
 -- TABLAS MAESTRAS Y DIMENSIONES
--- ============================================================================
+
 -- 1. Ubicaciones geográficas
 CREATE TABLE IF NOT EXISTS core.geography (
     geo_id VARCHAR(10) NOT NULL,
@@ -72,9 +72,7 @@ CREATE TABLE IF NOT EXISTS core.products (
     created_date DATE NOT NULL
 );
 
--- ============================================================================
 -- TABLAS TRANSACCIONALES Y DE EVENTOS
--- ============================================================================
 
 -- 6. Cabecera de pedidos
 CREATE TABLE IF NOT EXISTS core.orders (

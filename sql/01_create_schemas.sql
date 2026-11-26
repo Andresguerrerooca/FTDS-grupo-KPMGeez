@@ -9,7 +9,8 @@
 -- Salidas:
 --   Esquemas staging, core y analytics disponibles para los scripts posteriores.
 -- Autoría / equipo:
---   TODO: indicar nombres, apellidos y repositorio del equipo.
+--   Grupo KPMGeez — [Pablo Sepúlveda, Mohammed Ghaith, Meysem Bentahar, Andres Guerrero, Martín Larrea]
+--   Repositorio: https://github.com/Andresguerrerooca/FTDS-grupo-KPMGeez
 -- Cómo ejecutarlo:
 --   Query Tool de pgAdmin. Script autocontenido, sin \i ni \copy.
 

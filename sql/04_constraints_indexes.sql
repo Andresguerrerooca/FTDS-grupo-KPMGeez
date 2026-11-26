@@ -18,9 +18,7 @@
 --   Grupo KPMGeez — [Pablo Sepúlveda, Mohammed Ghaith, Meysem Bentahar, Andres Guerrero, Martín Larrea]
 --   Repositorio: https://github.com/Andresguerrerooca/FTDS-grupo-KPMGeez
 
--- ============================================================================
 -- 1. CLAVES PRIMARIAS (PRIMARY KEY)
--- ============================================================================
 
 ALTER TABLE core.geography
     ADD CONSTRAINT pk_geography PRIMARY KEY (geo_id);
@@ -52,9 +50,8 @@ ALTER TABLE core.shipments
 ALTER TABLE core.returns
     ADD CONSTRAINT pk_returns PRIMARY KEY (return_id);
 
--- ============================================================================
 -- 2. CLAVES FORÁNEAS (FOREIGN KEY)
--- ============================================================================
+
 -- Tablas maestras y dimensiones
 ALTER TABLE core.customers
     ADD CONSTRAINT fk_customers_geo
@@ -105,9 +102,7 @@ ALTER TABLE core.returns
     ADD CONSTRAINT fk_returns_order_item
     FOREIGN KEY (order_item_id) REFERENCES core.order_items (order_item_id);
 
--- ============================================================================
 -- 3. REGLAS DE NEGOCIO Y DOMINIO (CHECK)
--- ============================================================================
 
 -- Geography: prefijo
 ALTER TABLE core.geography
@@ -185,9 +180,7 @@ ALTER TABLE core.returns
         CHECK (return_status IN ('requested', 'approved', 'rejected', 'refunded')),
     ADD CONSTRAINT chk_returns_refund CHECK (refund_amount >= 0);
 
--- ============================================================================
--- 4. ÍNDICES JUSTIFICADOS (CLAVES FORÁNEAS Y FILTROS FRECUENTES)
--- ============================================================================
+-- 4. ÍNDICES (CLAVES FORÁNEAS Y FILTROS FRECUENTES)
 
 -- Dimensiones y maestras (cruces habituales)
 CREATE INDEX IF NOT EXISTS idx_customers_geo_id ON core.customers (geo_id);

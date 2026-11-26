@@ -8,7 +8,8 @@
 -- Salidas:
 --   10 tablas en el esquema staging.* listas para la importación inicial.
 -- Autoría / equipo:
---   TODO: indicar nombres, apellidos y repositorio del equipo.
+--   Grupo KPMGeez — [Pablo Sepúlveda, Mohammed Ghaith, Meysem Bentahar, Andres Guerrero, Martín Larrea]
+--   Repositorio: https://github.com/Andresguerrerooca/FTDS-grupo-KPMGeez
 
 CREATE TABLE IF NOT EXISTS staging.geography (
     geo_id TEXT,
